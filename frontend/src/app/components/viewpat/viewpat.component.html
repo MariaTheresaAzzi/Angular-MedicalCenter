@@ -1,0 +1,13 @@
+<div class="patient-view">
+  <h2>Patient Details</h2>
+  <div *ngIf="patient">
+    <p><strong>First Name:</strong> {{ patient.firstname }}</p>
+    <p><strong>Last Name:</strong> {{ patient.lastname }}</p>
+    <p><strong>Email:</strong> {{ patient.email }}</p>
+    <p><strong>Address:</strong> {{ patient.address }}</p>
+    <p><strong>Date of Birth:</strong> {{ patient.date_of_birth | date }}</p>
+    <p><strong>Doctor:</strong>{{ doctorName }}</p>
+    <button  [routerLink]="['/patient']">Go Back</button>
+  </div>
+  <div *ngIf="loading">Loading...</div>
+</div>

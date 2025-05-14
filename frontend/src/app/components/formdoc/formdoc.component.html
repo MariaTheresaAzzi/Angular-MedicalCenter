@@ -1,0 +1,26 @@
+<div >
+  <h2>Add Doctor</h2>
+  <form class="form-container" (ngSubmit)="onAddDoctor()" #doctorForm="ngForm">
+
+    <div>
+        <label for="firstname">First Name:</label>
+        <input type="text" name="firstname" [(ngModel)]="newDoctor.firstname" placeholder="First Name" required />
+    </div>
+    <div>
+        <label for="firstname">Last Name:</label>
+        <input type="text" name="lastname" [(ngModel)]="newDoctor.lastname" placeholder="Last Name" required />
+    </div>
+    <div>
+        <label for="firstname">Specialization</label>
+        <input type="text" name="specialization" [(ngModel)]="newDoctor.specialization" placeholder="Specialization" required />
+    </div>
+    <div>
+        <label for="firstname">Department</label>
+        <input type="text" name="department" [(ngModel)]="newDoctor.department" placeholder="Department" required />
+    </div>
+    
+    <button type="submit" [disabled]="doctorForm.invalid">Add Doctor</button>
+    <button class="button-Cancel" [routerLink]="['/\doctor']">Cancel</button>
+  </form>
+</div>
+

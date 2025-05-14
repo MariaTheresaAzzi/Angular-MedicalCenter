@@ -1,0 +1,50 @@
+<form class="form-container" (ngSubmit)="onSubmit()" #patientForm="ngForm">
+  <div>
+    <label for="firstname">First Name:</label>
+    <input type="text" id="firstname" name="firstname" [(ngModel)]="newPatient['firstname']"
+ required>
+  </div>
+
+  <div>
+    <label for="lastname">Last Name:</label>
+    <input type="text" id="lastname" name="lastname" [(ngModel)]="newPatient['lastname']" required>
+  </div>
+
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" [(ngModel)]="newPatient['email']" required>
+  </div>
+
+  <div>
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address" [(ngModel)]="newPatient['address']" required>
+  </div>
+
+  <div>
+    <label for="date_of_birth">Date of Birth:</label>
+    <input type="date" id="date_of_birth" name="date_of_birth" [(ngModel)]="newPatient['date_of_birth']" required>
+  </div>
+
+  <div>
+    <label for="image">Image:</label>
+    <input type="file" id="image" name="image" (change)="onFileChange($event, 'image')">
+  </div>
+
+  <div>
+    <label for="document">Document:</label>
+    <input type="file" id="document" name="document" (change)="onFileChange($event, 'document')">
+  </div>
+
+  <div>
+    <label for="doctorId">Doctor:</label>
+    <select put type="text" id="doctorId" name="doctorId" [(ngModel)]="newPatient.doctorId" required> 
+        <option *ngFor="let doctor of doctors" [value]="doctor._id">
+            {{ doctor.firstname }} {{ doctor.lastname }}
+        </option>
+    </select>
+  </div>
+
+  <button type="submit" [disabled]="!patientForm.form.valid">Create Patient</button>
+  <button class="button-Cancel" [routerLink]="['/\patient']">Cancel</button>
+</form>
+

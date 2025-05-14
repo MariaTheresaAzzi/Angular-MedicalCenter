@@ -1,0 +1,12 @@
+<div class="doctor-view">
+  <h2>Doctor Details</h2>
+  <div *ngIf="doctor">
+    <p><strong>First Name:</strong> {{ doctor.firstname }}</p>
+    <p><strong>Last Name:</strong> {{ doctor.lastname }}</p>
+    <p><strong>Specialization:</strong> {{ doctor.specialization }}</p>
+    <p><strong>Department:</strong> {{ doctor.department }}</p>
+    <button [routerLink]="['/doctor']">Go Back</button>
+  </div>
+  <div *ngIf="loading">Loading...</div>
+</div>
+

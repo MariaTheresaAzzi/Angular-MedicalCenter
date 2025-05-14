@@ -1,0 +1,42 @@
+<div class="table-container">
+  <div class="table-header">
+    <h2>Doctor List</h2>
+    <!-- <button class="add-btn" (click)="onAdd()">+ Add User</button> -->
+    <button class="add-btn" [routerLink]="['/createdoctor']">+ Add Doctor</button>
+  </div>
+
+  <input
+  type="text"
+  placeholder="Search doctors..."
+  [(ngModel)]="searchText"
+  class="search-input"
+  />
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Specialization</th>
+        <th>Department</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let doctor of filteredDoctors(); let i = index">
+       <!-- <tr *ngFor="let doctor of doctors; let i = index"> -->
+        <td>{{ i + 1 }}</td>
+        <td>{{ doctor.firstname }}</td>
+        <td>{{ doctor.lastname }}</td>
+        <td>{{ doctor.specialization }}</td>
+        <td>{{ doctor.department }}</td>
+        <td>
+          <button class="view-btn" [routerLink]="['/doctor', doctor._id]">View</button>
+          <button class="edit-btn" [routerLink]="['/editdoctor', doctor._id]">Edit</button>
+          <button class="delete-btn" (click)="onDelete(doctor._id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
