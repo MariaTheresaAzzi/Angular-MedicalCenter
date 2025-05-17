@@ -63,7 +63,6 @@ export class EditpatComponent implements OnInit {
     formData.append('date_of_birth', this.patient.date_of_birth);
     formData.append('doctorId', this.patient.doctorId);
 
-    // Append files if they are File objects
     if (this.patient.image && this.patient.image instanceof File) {
       formData.append('image', this.patient.image);
     }
@@ -78,10 +77,4 @@ export class EditpatComponent implements OnInit {
     });
   }
 
-  onFileChange(event: any, field: 'image' | 'document'): void {
-    const file = event.target.files[0];
-    if (file) {
-      this.patient[field] = file; // Store File object directly
-    }
-  }
 }
