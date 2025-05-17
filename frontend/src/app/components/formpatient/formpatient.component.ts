@@ -45,39 +45,6 @@ export class FormpatientComponent {
     }
   }
 
-  // onSubmit() {
-  //   const formData = new FormData();
-
-  //   // Append all fields to FormData
-  //   type NewPatientKey = keyof typeof this.newPatient;
-
-  //   for (const key of Object.keys(this.newPatient) as NewPatientKey[]) {
-  //     const value = this.newPatient[key];
-  //     if (value !== null && value !== undefined) {
-  //       formData.append(key, value as any);
-  //     }
-  //   }
-
-  //   this.http.post('http://localhost:3000/api/createpatient', formData).subscribe(
-  //     (res) => {
-  //       this.newPatient = {
-  //         firstname: '',
-  //         lastname: '',
-  //         email: '',
-  //         address: '',
-  //         date_of_birth: '',
-  //         image: null,
-  //         document: null,
-  //         doctorId: ''
-  //       };
-  //       this.router.navigate(['/patient']);
-  //     },
-  //     (err) => {
-  //       console.error('Error creating patient:', err);
-  //     }
-  //   );
-  // }
-
   onSubmit() {
   const formData = new FormData();
 
