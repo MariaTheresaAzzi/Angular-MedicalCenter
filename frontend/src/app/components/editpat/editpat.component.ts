@@ -27,18 +27,23 @@ export class EditpatComponent implements OnInit {
   ) {}
 
   doctors: any[] = [];
-
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id'); // <-- ADD THIS LINE
+    this.id = this.route.snapshot.paramMap.get('id');
 
     this.doctorService.getDoctors().subscribe((doctorsData) => {
       this.doctors = doctorsData;
 
       if (this.id) {
         this.http.get(`http://localhost:3000/api/patient/${this.id}`).subscribe((data: any) => {
+          // Format date_of_birth to 'YYYY-MM-DD'
+          const formattedDate = data.date_of_birth
+            ? data.date_of_birth.substring(0, 10) // trims "1990-01-01T00:00:00.000Z" to "1990-01-01"
+            : '';
+
           this.patient = {
             ...data,
-            doctorId: data.doctor, // Ensure this matches the field used in your dropdown binding
+            doctorId: data.doctor,
+            date_of_birth: formattedDate, // Set formatted date
           };
         });
       }
